@@ -5,17 +5,17 @@ import java.util.Objects;
 public class Clothing {
 	
 	private Long id;
-	private String type;
+	private String description;
 	private char gender;
 	private String size;
 	
 	public Clothing() {
 	}
 
-	public Clothing(Long id, String type, char gender, String size) {
+	public Clothing(Long id, String description, char gender, String size) {
 		super();
 		this.id = id;
-		this.type = type;
+		this.description = description;
 		this.gender = gender;
 		this.size = size;
 	}
@@ -28,12 +28,12 @@ public class Clothing {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public char getGender() {
@@ -71,7 +71,7 @@ public class Clothing {
 
 	@Override
 	public String toString() {
-		return "Clothing [id=" + id + ", type=" + type + ", gender=" + gender + ", size=" + size + "]";
+		return "Clothing [id=" + id + ", description=" + description + ", gender=" + gender + ", size=" + size + "]";
 	}
 
 }

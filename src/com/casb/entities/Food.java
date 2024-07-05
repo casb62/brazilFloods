@@ -6,17 +6,17 @@ import java.util.Objects;
 public class Food {
 	
 	private Long id;
-	private String type;
+	private String description;
 	private String unitOfMeasurement;
 	private Date validity;
 	
 	public Food() {
 	}
 
-	public Food(Long id, String type, String unitOfMeasurement, Date validity) {
+	public Food(Long id, String description, String unitOfMeasurement, Date validity) {
 		super();
 		this.id = id;
-		this.type = type;
+		this.description = description;
 		this.unitOfMeasurement = unitOfMeasurement;
 		this.validity = validity;
 	}
@@ -29,12 +29,12 @@ public class Food {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getUnitOfMeasurement() {
@@ -72,7 +72,7 @@ public class Food {
 
 	@Override
 	public String toString() {
-		return "Food [id=" + id + ", type=" + type + ", unitOfMeasurement=" + unitOfMeasurement + ", validity="
+		return "Food [id=" + id + ", description=" + description + ", unitOfMeasurement=" + unitOfMeasurement + ", validity="
 				+ validity + "]";
 	}
 }

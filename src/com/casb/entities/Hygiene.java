@@ -5,16 +5,16 @@ import java.util.Objects;
 public class Hygiene {
 	
 	private Long id;
-	private String type;
+	private String description;
 	private String unitOfMeasurement;
 	
 	public Hygiene() {
 	}
 
-	public Hygiene(Long id, String type, String unitOfMeasurement) {
+	public Hygiene(Long id, String description, String unitOfMeasurement) {
 		super();
 		this.id = id;
-		this.type = type;
+		this.description = description;
 		this.unitOfMeasurement = unitOfMeasurement;
 	}
 
@@ -26,12 +26,12 @@ public class Hygiene {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getUnitOfMeasurement() {
@@ -61,6 +61,6 @@ public class Hygiene {
 
 	@Override
 	public String toString() {
-		return "Hygiene [id=" + id + ", type=" + type + ", unitOfMeasurement=" + unitOfMeasurement + "]";
+		return "Hygiene [id=" + id + ", description=" + description + ", unitOfMeasurement=" + unitOfMeasurement + "]";
 	}
 }
