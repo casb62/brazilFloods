@@ -4,27 +4,29 @@ import java.util.Objects;
 
 public class Clothing {
 	
-	private Long id;
+	private Integer id;
 	private String description;
-	private char gender;
+	private String gender;
 	private String size;
+	private String distributionCenter;
 	
 	public Clothing() {
 	}
 
-	public Clothing(Long id, String description, char gender, String size) {
+	public Clothing(Integer id, String description, String gender, String size, String distributionCenter) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.gender = gender;
 		this.size = size;
+		this.distributionCenter = distributionCenter;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -36,11 +38,11 @@ public class Clothing {
 		this.description = description;
 	}
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -50,6 +52,14 @@ public class Clothing {
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+	
+	public String getDistributionCenter() {
+		return distributionCenter;
+	}
+
+	public void setDistributionCenter(String distributionCenter) {
+		this.distributionCenter = distributionCenter;
 	}
 
 	@Override
@@ -71,7 +81,10 @@ public class Clothing {
 
 	@Override
 	public String toString() {
-		return "Clothing [id=" + id + ", description=" + description + ", gender=" + gender + ", size=" + size + "]";
+		return "Clothing [id=" + id + ", description=" + description + ", gender=" + gender + ", size=" + size
+				+ ", distributionCenter=" + distributionCenter + "]";
 	}
+
+	
 
 }

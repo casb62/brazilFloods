@@ -5,27 +5,29 @@ import java.util.Objects;
 
 public class Food {
 	
-	private Long id;
+	private Integer id;
 	private String description;
 	private String unitOfMeasurement;
 	private Date validity;
+	private String distributionCenter;
 	
 	public Food() {
 	}
 
-	public Food(Long id, String description, String unitOfMeasurement, Date validity) {
+	public Food(Integer id, String description, String unitOfMeasurement, Date validity, String distributionCenter) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.unitOfMeasurement = unitOfMeasurement;
 		this.validity = validity;
+		this.distributionCenter = distributionCenter;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -52,6 +54,14 @@ public class Food {
 	public void setValidity(Date validity) {
 		this.validity = validity;
 	}
+	
+	public String getDistributionCenter() {
+		return distributionCenter;
+	}
+
+	public void setDistributionCenter(String distributionCenter) {
+		this.distributionCenter = distributionCenter;
+	}
 
 	@Override
 	public int hashCode() {
@@ -72,7 +82,8 @@ public class Food {
 
 	@Override
 	public String toString() {
-		return "Food [id=" + id + ", description=" + description + ", unitOfMeasurement=" + unitOfMeasurement + ", validity="
-				+ validity + "]";
+		return "Food [id=" + id + ", description=" + description + ", unitOfMeasurement=" + unitOfMeasurement
+				+ ", validity=" + validity + ", distributionCenter=" + distributionCenter + "]";
 	}
+
 }

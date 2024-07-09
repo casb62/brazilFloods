@@ -17,9 +17,10 @@ public class BrazilFloodsApplication {
 		static boolean exit;
 
 	public static void main(String[] args) {
-	
+		
 		runMenu();
 	}
+	
 	
 	public static void runMenu() {
 		

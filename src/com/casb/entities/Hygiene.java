@@ -4,25 +4,25 @@ import java.util.Objects;
 
 public class Hygiene {
 	
-	private Long id;
+	private Integer id;
 	private String description;
-	private String unitOfMeasurement;
+	private String distributionCenter;
 	
 	public Hygiene() {
 	}
 
-	public Hygiene(Long id, String description, String unitOfMeasurement) {
+	public Hygiene(Integer id, String description, String distributionCenter) {
 		super();
 		this.id = id;
 		this.description = description;
-		this.unitOfMeasurement = unitOfMeasurement;
+		this.distributionCenter = distributionCenter;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -34,12 +34,12 @@ public class Hygiene {
 		this.description = description;
 	}
 
-	public String getUnitOfMeasurement() {
-		return unitOfMeasurement;
+	public String getDistributionCenter() {
+		return distributionCenter;
 	}
 
-	public void setUnitOfMeasurement(String unitOfMeasurement) {
-		this.unitOfMeasurement = unitOfMeasurement;
+	public void setDistributionCenter(String distributionCenter) {
+		this.distributionCenter = distributionCenter;
 	}
 
 	@Override
@@ -61,6 +61,6 @@ public class Hygiene {
 
 	@Override
 	public String toString() {
-		return "Hygiene [id=" + id + ", description=" + description + ", unitOfMeasurement=" + unitOfMeasurement + "]";
+		return "Hygiene [id=" + id + ", description=" + description + ", distributionCenter=" + distributionCenter + "]";
 	}
 }
