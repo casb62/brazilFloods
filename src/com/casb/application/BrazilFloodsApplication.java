@@ -1,6 +1,10 @@
 package com.casb.application;
 
+import java.io.File;
+import java.util.List;
 import java.util.Scanner;
+
+import com.casb.entities.CsvReading;
 
 /**
 *
@@ -17,6 +21,15 @@ public class BrazilFloodsApplication {
 		static boolean exit;
 
 	public static void main(String[] args) {
+		
+		File file = new File("csvFile");
+		CsvReading cr = new CsvReading();
+		List<String> lines = null;
+		lines = cr.readFile(file);
+		for(String line: lines) {
+			System.out.println(line);
+		}
+		
 		
 		
 		runMenu();
