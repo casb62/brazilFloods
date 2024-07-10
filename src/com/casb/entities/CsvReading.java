@@ -1,36 +1,28 @@
 package com.casb.entities;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class CsvReading {
-	
-	//File file = new File("csvFile");
-	Scanner sc = null;
 
-	public List<String> readFile(File file) {
-		
-		List<String> lines = null;
-		try {
-			sc = new Scanner(file);
-			lines = new ArrayList<>();
-			
-			while(sc.hasNextLine()) {
-				
-				lines.add(sc.nextLine());
+	public List<String> readFile() {
+
+		String path = "csvFile";
+		List<String> list = null;
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			String line = br.readLine();
+			while(line != null){
+				list = new ArrayList<>();
+				list.add(line);
+				line = br.readLine();
 			}
 		}
 		catch(IOException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error: " + e.getMessage());
 		}
-		finally {
-			if(sc != null) {
-				sc.close();
-			}
-		}
-		return lines;
+		return list;
 	}
 }
