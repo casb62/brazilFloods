@@ -51,9 +51,14 @@ public class DB {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			DB.closeResultSet(rs);
+			DB.closeStatement(stm);
+			DB.closeConnection();
+		}
 		return rs;
 	}
-
+	
 	private static Properties loadProperties() {
 		try (FileInputStream fis = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
@@ -61,6 +66,26 @@ public class DB {
 			return props;
 		} catch (IOException e) {
 			throw new DbException(e.getMessage());
+		}
+	}
+	
+	public static void closeStatement(Statement st) {
+		if(st != null) {
+			try {
+				st.close();
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			}
+		}
+	}
+	
+	public static void closeResultSet(ResultSet rs) {
+		if(rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			}
 		}
 	}
 }

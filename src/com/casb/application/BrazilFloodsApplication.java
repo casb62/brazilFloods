@@ -18,6 +18,7 @@ public class BrazilFloodsApplication {
 
 	public static void main(String[] args) {
 		
+		
 		runMenu();
 	}
 	
