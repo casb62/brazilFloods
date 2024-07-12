@@ -3,6 +3,7 @@ package com.casb.application;
 import java.util.Scanner;
 
 import com.casb.entities.Category;
+import com.casb.entities.DistributionCenter;
 import com.casb.entities.Donation;
 
 /**
@@ -23,6 +24,10 @@ public class BrazilFloodsApplication {
 		private static final int RETRIEVE_CATEGORY = 7;
 		private static final int UPDATE_CATEGORY = 8;
 		private static final int DELETE_CATEGORY = 9;
+		private static final int CREATE_DISTRIBUTION_CENTER = 10;
+		private static final int RETRIEVE_DISTRIBUTION_CENTER = 11;
+		private static final int UPDATE_DISTRIBUTION_CENTER = 12;
+		private static final int DELELE_DISTRIBUTION_CENTER = 13;
 		
 		static boolean exit;
 
@@ -65,12 +70,16 @@ public class BrazilFloodsApplication {
 		System.out.println("7 - Ler categorias.");
 		System.out.println("8 - Atualizar categoria.");
 		System.out.println("9 - Deletar categoria.");
+		System.out.println("10 - Registrar Centro de Distribuição.");
+		System.out.println("11 - Ler Centros de Distribuição.");
+		System.out.println("12 - Atualizar Centro de Distribuição.");
+		System.out.println("13 - Deletar Centro de Distribuição.");
 	}
 	
 	static private int getInput() {
 		Scanner sc = new Scanner(System.in);
 		int choice = -1;
-		while (choice < 0 || choice > 9) {
+		while (choice < 0 || choice > 13) {
 			try {
 				System.out.print("\nDigite sua opção: ");
 				choice = Integer.parseInt(sc.next());
@@ -123,6 +132,22 @@ public class BrazilFloodsApplication {
 		case DELETE_CATEGORY:
 			cat = new Category();
 			cat.deleteCategory();
+			break;
+		case CREATE_DISTRIBUTION_CENTER:
+			DistributionCenter dis = new DistributionCenter();
+			dis.createDistributionCenter();
+			break;
+		case RETRIEVE_DISTRIBUTION_CENTER:
+			dis = new DistributionCenter();
+			dis.retrieveDistributionCenter();
+			break;
+		case UPDATE_DISTRIBUTION_CENTER:
+			dis = new DistributionCenter();
+			dis.updateDistributionCenter();
+			break;
+		case DELELE_DISTRIBUTION_CENTER:
+			dis = new DistributionCenter();
+			dis.deleteDistributionCenter();
 			break;
 		default:
 			System.out.println("Um erro desconhecido ocorreu.");

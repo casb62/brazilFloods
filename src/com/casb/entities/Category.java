@@ -116,7 +116,7 @@ public void createCategory() {
 			System.out.println("Digite o número id da categoria que deseja atualizar: ");
 			int id = sc.nextInt();
 			System.out.println("Digite o nome: ");
-						
+			String name = sc.nextLine();			
 			conn = DB.openConnection();
 			st = conn.prepareStatement("UPDATE bf_category " + "SET name = ? " + "WHERE " + "(id = ? )" );
 			st.setString(1, name);
