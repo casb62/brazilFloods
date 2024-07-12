@@ -1,6 +1,8 @@
 package com.casb.application;
 
 import java.util.Scanner;
+
+import com.casb.entities.Category;
 import com.casb.entities.Donation;
 
 /**
@@ -17,6 +19,10 @@ public class BrazilFloodsApplication {
 		private static final int RETRIEVE_DONATION = 3;
 		private static final int UPDATE_DONATION = 4;
 		private static final int DELETE_DONATION = 5;
+		private static final int CREATE_CATEGORY = 6;
+		private static final int RETRIEVE_CATEGORY = 7;
+		private static final int UPDATE_CATEGORY = 8;
+		private static final int DELETE_CATEGORY = 9;
 		
 		static boolean exit;
 
@@ -55,12 +61,16 @@ public class BrazilFloodsApplication {
 		System.out.println("3 - Ler doações.");
 		System.out.println("4 - Atualizar doação.");
 		System.out.println("5 - Deletar doação.");
+		System.out.println("6 - Registrar categoria de produtos doados.");
+		System.out.println("7 - Ler categorias.");
+		System.out.println("8 - Atualizar categoria.");
+		System.out.println("9 - Deletar categoria.");
 	}
 	
 	static private int getInput() {
 		Scanner sc = new Scanner(System.in);
 		int choice = -1;
-		while (choice < 0 || choice > 5) {
+		while (choice < 0 || choice > 9) {
 			try {
 				System.out.print("\nDigite sua opção: ");
 				choice = Integer.parseInt(sc.next());
@@ -97,6 +107,23 @@ public class BrazilFloodsApplication {
 		case DELETE_DONATION:
 			don = new Donation();
 			don.deleteDonation();
+			break;
+		case CREATE_CATEGORY:
+			Category cat = new Category();
+			cat.createCategory();
+			break;
+		case RETRIEVE_CATEGORY:
+			cat = new Category();
+			cat.retrieveCategory();
+			break;
+		case UPDATE_CATEGORY:
+			cat = new Category();
+			cat.updateCategory();
+			break;
+		case DELETE_CATEGORY:
+			cat = new Category();
+			cat.deleteCategory();
+			break;
 		default:
 			System.out.println("Um erro desconhecido ocorreu.");
 		}
