@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 import java.util.Scanner;
-
 import com.casb.db.DB;
 import com.casb.db.DBIntegrityException;
 
@@ -133,7 +132,7 @@ public void createDistributionCenter() {
 			st = conn.createStatement();
 			rs1 = st.executeQuery("SELECT * FROM bf_distribution_center");
 			rs2 = st.executeQuery("SELECT * FROM bf_address");
-			while(rs1.next()) {
+
 				System.out.println(rs1.getInt("id") + ", " + rs1.getString("name"));
 				while(rs2.next()) {
 					System.out.println(rs2.getInt("id") + ", " + rs2.getString("public_place") + ", " + rs2.getString("place_number") + ", "
@@ -141,7 +140,6 @@ public void createDistributionCenter() {
 					+ rs2.getString("zipcode"));
 				}
 			}
-		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}

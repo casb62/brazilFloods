@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.casb.entities.Category;
 import com.casb.entities.DistributionCenter;
 import com.casb.entities.Donation;
+import com.casb.entities.Shelter;
 
 /**
 *
@@ -28,6 +29,11 @@ public class BrazilFloodsApplication {
 		private static final int RETRIEVE_DISTRIBUTION_CENTER = 11;
 		private static final int UPDATE_DISTRIBUTION_CENTER = 12;
 		private static final int DELELE_DISTRIBUTION_CENTER = 13;
+		private static final int CREATE_SHELTER = 14;
+		private static final int RETRIEVE_SHELTERS = 15;
+		private static final int RETRIEVE_SHELTER = 16;
+		private static final int UPDATE_SHELTER = 17;
+		private static final int DELETE_SHELTER = 18;
 		
 		static boolean exit;
 
@@ -74,12 +80,17 @@ public class BrazilFloodsApplication {
 		System.out.println("11 - Ler Centros de Distribuição.");
 		System.out.println("12 - Atualizar Centro de Distribuição.");
 		System.out.println("13 - Deletar Centro de Distribuição.");
+		System.out.println("14 - Registrar Abrigo.");
+		System.out.println("15 - Ler Abrigos.");
+		System.out.println("16 - Ler Abrigo.");
+		System.out.println("17 - Atualizar Abrigo.");
+		System.out.println("18 - Deletar Abrigo.");
 	}
 	
 	static private int getInput() {
 		Scanner sc = new Scanner(System.in);
 		int choice = -1;
-		while (choice < 0 || choice > 13) {
+		while (choice < 0 || choice > 18) {
 			try {
 				System.out.print("\nDigite sua opção: ");
 				choice = Integer.parseInt(sc.next());
@@ -149,13 +160,35 @@ public class BrazilFloodsApplication {
 			dis = new DistributionCenter();
 			dis.deleteDistributionCenter();
 			break;
+		case CREATE_SHELTER:
+			Shelter she = new Shelter();
+			she.createShelter();
+			break;
+		case RETRIEVE_SHELTERS:
+			she = new Shelter();
+			she.retrieveShelters();
+			break;
+		case RETRIEVE_SHELTER:
+			Scanner sc = new Scanner(System.in);
+			she = new Shelter();
+			System.out.println("Digite o número id do abrigo que deseja obter mais detalhes: ");
+			int id = sc.nextInt();
+			she.retrieveShelter(id);
+			break;
+		case UPDATE_SHELTER:
+			she = new Shelter();
+			she.updateShelter();
+			break;
+		case DELETE_SHELTER:
+			she = new Shelter();
+			she.deleteShelter();
 		default:
 			System.out.println("Um erro desconhecido ocorreu.");
 		}
 	}
 	
 	public static void clearScreen() {
-		for(int i = 0; i < 50; i++) {
+		for(int i = 0; i < 20; i++) {
 			System.out.println();
 		}
 		
