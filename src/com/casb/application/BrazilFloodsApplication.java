@@ -1,7 +1,6 @@
 package com.casb.application;
 
 import java.util.Scanner;
-
 import com.casb.entities.Category;
 import com.casb.entities.DistributionCenter;
 import com.casb.entities.Donation;
@@ -34,37 +33,44 @@ public class BrazilFloodsApplication {
 		private static final int RETRIEVE_SHELTER = 16;
 		private static final int UPDATE_SHELTER = 17;
 		private static final int DELETE_SHELTER = 18;
+		private static final int INSERT_FROM_FILE = 19;
 		
+		Scanner sc = new Scanner(System.in);
 		static boolean exit;
 
 	public static void main(String[] args) {
-		
-			
-		
-		runMenu();
+		BrazilFloodsApplication bfa = new BrazilFloodsApplication();
+		bfa.runMenu();
 	}
 	
-	
-	public static void runMenu() {
+	public void runMenu() {
 		
 		while(!exit){
 			printHeader();
-			showHelp();
+			printAlert();
 			printMenu();
 			int choice = getInput();
 			performAction(choice);
+			sc.nextLine();
 			clearScreen();
 		}
 	}
 	
-	static private void printHeader() {
+	public void printHeader() {
+		
 		System.out.println("                                                 +-----------------------------------------------+");
-		System.out.println("                                                 |          Software para gerenciamento          |");
-		System.out.println("                                                 |        de crises causadas por enchentes       |");
+		System.out.println("                                                 |   Software para gerenciamento de crises       |");
+		System.out.println("                                                 |      causadas por enchentes no Brasil         |");
 		System.out.println("                                                 +-----------------------------------------------+");
 	}
 	
-	static private void printMenu() {
+	public void printAlert() {
+		
+		System.out.println("\n\n----------IMPORTANTE. LEIA A AJUDA NA OPÇÃO 1 DO MENU ANTES DE USAR O SISTEMA.----------\n\n");
+	}
+	
+	public void printMenu() {
+		
 		System.out.println("\nEscolha uma opção:\n");
 		System.out.println("0 - Sair.");
 		System.out.println("1 - Exibir ajuda.");
@@ -85,32 +91,34 @@ public class BrazilFloodsApplication {
 		System.out.println("16 - Ler Abrigo.");
 		System.out.println("17 - Atualizar Abrigo.");
 		System.out.println("18 - Deletar Abrigo.");
+		System.out.println("19 - Inserir doações através de um arquivo csv.");
 	}
 	
-	static private int getInput() {
-		Scanner sc = new Scanner(System.in);
+	public int getInput() {
+		
 		int choice = -1;
-		while (choice < 0 || choice > 18) {
+		while (choice < 0 || choice > 19) {
 			try {
 				System.out.print("\nDigite sua opção: ");
 				choice = Integer.parseInt(sc.next());
 				}
 				catch (NumberFormatException e) {
 				System.out.println("Opção inválida. Por favor, tente novamente.");
-				sc.close();
+				
 			}
 		}
 		return choice;
 	}
 	
-	static private void performAction(int choice) {
+	public void performAction(int choice) {
+		
 		switch (choice) {
 		case LOGOUT:
 			exit = true;
 			System.out.println("\nObrigado por usar este software.\n");
 			break;
 		case SHOW_HELP:
-			System.out.println("\n----------IMPORTANTE. LEIA ANTES DE USAR O SISTEMA.----------");
+			System.out.println(showHelp());
 			break;
 		case CREATE_DONATION:
 			Donation don = new Donation();
@@ -169,11 +177,11 @@ public class BrazilFloodsApplication {
 			she.retrieveShelters();
 			break;
 		case RETRIEVE_SHELTER:
-			Scanner sc = new Scanner(System.in);
 			she = new Shelter();
 			System.out.println("Digite o número id do abrigo que deseja obter mais detalhes: ");
 			int id = sc.nextInt();
 			she.retrieveShelter(id);
+			sc.close();
 			break;
 		case UPDATE_SHELTER:
 			she = new Shelter();
@@ -182,19 +190,30 @@ public class BrazilFloodsApplication {
 		case DELETE_SHELTER:
 			she = new Shelter();
 			she.deleteShelter();
+			break;
+		case INSERT_FROM_FILE:
+			don = new Donation();
+			don.insertDonationFromCsvFile();
+			break;
 		default:
 			System.out.println("Um erro desconhecido ocorreu.");
 		}
 	}
 	
-	public static void clearScreen() {
-		for(int i = 0; i < 20; i++) {
+	public void clearScreen() {
+		
+		for(int i = 0; i < 5; i++) {
 			System.out.println();
 		}
-		
 	}
 	
-	public static void showHelp() {
-		System.out.println("Help menu");
+	public String showHelp() {
+		
+		StringBuilder sb = new StringBuilder();
+        sb.append("\nPara começar a usar este sistema, o primeiro passo é cadastrar as categorias dos itens das doações.\n");
+        sb.append("Os itens obrigatórios são: Roupas, Higiene e Alimentos.\n");
+        sb.append("Depois, cadastrar os Abrigos e Centros de Distribuição.\n");
+        sb.append("Digitar as datas no formato dd/mm/aaaa.\n");
+        return sb.toString();
 	}
 }

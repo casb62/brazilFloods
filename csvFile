@@ -1,3 +1,33 @@
-Bom dia
-Boa tarde
-Boa noite
+arroz,kg,null,null,31/12/2025,3,1,5
+arroz,kg,null,null,31/12/2025,3,2,5
+arroz,kg,null,null,31/12/2025,3,3,5
+feijão,kg,null,null,31/12/2025,3,1,1
+feijão,kg,null,null,31/12/2025,3,2,1
+feijão,kg,null,null,31/12/2025,3,3,1
+macarrão,kg,null,null,31/12/2025,3,1,1
+macarrão,kg,null,null,31/12/2025,3,2,1
+macarrão,kg,null,null,31/12/2025,3,3,1
+óleo,lt,null,null,31/12/2025,3,1,1
+óleo,lt,null,null,31/12/2025,3,2,1
+óleo,lt,null,null,31/12/2025,3,3,1
+sal,kg,null,null,31/12/2026,3,1,1
+sal,kg,null,null,31/12/2026,3,2,1
+sal,kg,null,null,31/12/2026,3,3,1
+açucar,kg,null,null,31/12/2026,3,1,5
+açucar,kg,null,null,31/12/2026,3,2,5
+açucar,kg,null,null,31/12/2026,3,3,5
+camisa,unidade,m,g,31/12/2030,1,1,1
+camisa,unidade,m,g,31/12/2030,1,2,1
+camisa,unidade,m,g,31/12/2030,1,3,1
+camisa,unidade,m,m,31/12/2030,1,1,1
+camisa,unidade,m,m,31/12/2030,1,2,1
+camisa,unidade,m,p,31/12/2030,1,3,1
+shorts,unidade,m,g,31/12/2030,1,1,1
+shorts,unidade,m,g,31/12/2030,1,2,1
+shorts,unidade,m,g,31/12/2030,1,3,1
+sabonete,unidade,null,m,31/12/2030,2,1,1
+sabonete,unidade,null,m,31/12/2030,2,2,1
+sabonete,unidade,null,m,31/12/2030,2,3,1
+sabão em pó,kg,null,null,31/12/2030,2,1,1
+sabão em pó,kg,null,null,31/12/2030,2,2,1
+sabão em pó,kg,null,null,31/12/2030,2,3,1

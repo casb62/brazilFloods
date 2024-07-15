@@ -1,5 +1,7 @@
 package com.casb.entities;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,9 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+
 import com.casb.db.DB;
 import com.casb.db.DBIntegrityException;
 
@@ -286,6 +291,51 @@ public class Donation {
 			sc.close();
 		}
 }
+	
+	public void insertDonationFromCsvFile() {
+		
+		CsvReading cr = new CsvReading();
+		List<String> list = new ArrayList<>();
+		list = cr.readFile();
+		
+		do {
+		Connection conn = DB.openConnection();
+		PreparedStatement st = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		for(String string: list) {
+			String[] t = string.split(",");
+			try {
+				st = conn.prepareStatement("INSERT INTO bf_donations"
+				+ "(description, unit_of_measurement, gender, size, validity, category_id, distribution_center_id, quantity)"
+				+ "VALUES "
+				+ "(?, ?, ?, ?, ?, ?, ?, ?)");
+				
+				st.setString(1, t[0]);
+				st.setString(2, t[1]);
+				st.setString(3, t[2]);
+				st.setString(4, t[3]);
+				st.setDate(5, new java.sql.Date(sdf.parse(t[4]).getTime()));
+				st.setInt(6, Integer.parseInt(t[5]));
+				st.setInt(7, Integer.parseInt(t[6]));
+				st.setInt(8, Integer.parseInt(t[7]));
+				
+				st.executeUpdate();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			catch(ParseException e) {
+				e.printStackTrace();
+			}
+			finally {
+				DB.closeStatement(st);
+				DB.closeConnection();
+			}
+		}
+		}
+		while(!list.isEmpty());
+	}
 
 	@Override
 	public int hashCode() {
